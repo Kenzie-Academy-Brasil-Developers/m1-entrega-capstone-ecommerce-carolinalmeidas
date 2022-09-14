@@ -135,8 +135,6 @@ for(let i = 0; i , i < data.length; i++){
 }
 addCart()
 
-
-
 //função para pesquisa
 let button5 = document.getElementsByClassName("button1")[0]
 button5.addEventListener("click", function(event){
@@ -144,16 +142,116 @@ button5.addEventListener("click", function(event){
     let nomeDaPesquisa = document.querySelector("#pesquisa")
     let texto = nomeDaPesquisa.value
 
-    let removendoul1 = document.getElementsByClassName("container2")[0]
-    let removendoul2 = document.getElementsByClassName("vitrineProduto")[0]
-    removendoul1.removeChild(removendoul2)
+    let ul = document.getElementsByClassName("vitrineProduto")[0]
+    ul.innerHTML = ""
+   
 
-function encontrandoProduto(){
+    let li = document.createElement("li")
+    let div3 = document.createElement("div")
+    div3.classList.add("listadeprodutos")
+    let img = document.createElement ("img")
+    let h1 = document.createElement ("h1")
+    h1.classList.add("tag")
+    let h2 = document.createElement ("h2")
+    h2.classList.add("nomeDoProduto")
+    let h3 = document.createElement ("h3")
+    h3.classList.add("descricaoDoProduto")
+    let p = document.createElement("p")  
+  
+
+    ul.appendChild(li)
+    li.appendChild(img)
+    li.appendChild(div3)
+    div3.appendChild(h1)
+    div3.appendChild(h2)
+    div3.appendChild(h3)
+    div3.appendChild(p)
+
     for(let i = 0; i < data.length; i++){
-        if(texto.trim() == data[i].nameItem){
-            let element7 = document.getElementsByClassName("container2")[0]
-            let element6 = document.createElement("ul")
-            element6.classList.add("vitrineProduto")
+      if(texto.trim() === data[i].nameItem){
+        img.src = data[i].img
+        img.alt = data[i].nameItem
+    
+        //criando descrição
+        h1.innerText = data[i].tag[0]
+        h2.innerText = data[i].nameItem
+        h3.innerText = data[i].description
+        p.innerText = `R$ ${data[i].value}`
+      }
+        
+    }
+        
+});
+
+//função para secão todos
+let li1Menu = document.getElementsByClassName("todos")[0]
+li1Menu.addEventListener("click", function(event){
+    let tag1 = document.getElementsByClassName("container2")[0]
+    let tag2 = document.getElementsByClassName("vitrineProduto")[0]
+    tag1.removeChild(tag2)
+
+    let ul = document.createElement("ul")
+    ul.classList.add("vitrineProduto")
+    tag1.appendChild(ul)
+
+    for(let i = 0; i , i < data.length; i++){
+        let ul = document.getElementsByClassName("vitrineProduto")[0]
+        let li = document.createElement("li")
+        let div3 = document.createElement("div")
+        div3.classList.add("listadeprodutos")
+        let img = document.createElement ("img")
+        let h1 = document.createElement ("h1")
+        h1.classList.add("tag")
+        let h2 = document.createElement ("h2")
+        h2.classList.add("nomeDoProduto")
+        let h3 = document.createElement ("h3")
+        h3.classList.add("descricaoDoProduto")
+        let p = document.createElement("p")
+    
+        //criando imagens
+        img.src = data[i].img
+        img.alt = data[i].nameItem
+    
+        //criando descrição
+        h1.innerText = data[i].tag[0]
+        h2.innerText = data[i].nameItem
+        h3.innerText = data[i].description
+        p.innerText = `R$ ${data[i].value}`
+    
+        //criando botão
+        let button = document.createElement("button")
+        button.classList.add("button")
+        button.type = "submit"
+        button.innerText = data[i].addCart
+    
+        //referenciando
+        ul.appendChild(li)
+        li.appendChild(img)
+        li.appendChild(div3)
+        div3.appendChild(h1)
+        div3.appendChild(h2)
+        div3.appendChild(h3)
+        div3.appendChild(p)
+        li.appendChild(button)
+    }    
+});
+
+
+//função para seção alianças de casamento
+let li2Menu = document.getElementsByClassName("aliancasDeCasamento")[0]
+li2Menu.addEventListener("click", function(event){
+    event.preventDefault()
+    let tag1 = document.getElementsByClassName("container2")[0]
+    let tag2 = document.getElementsByClassName("vitrineProduto")[0]
+    tag1.removeChild(tag2)
+
+    let ul = document.createElement("ul")
+    ul.classList.add("vitrineProduto")
+    tag1.appendChild(ul)
+
+    for(let i = 0; i < data.length; i++){
+        if(data[i].tag[0] === "Aliança de Casamento"){
+            let ul = document.getElementsByClassName("vitrineProduto")[0]
             let li = document.createElement("li")
             let div3 = document.createElement("div")
             div3.classList.add("listadeprodutos")
@@ -176,46 +274,121 @@ function encontrandoProduto(){
             h3.innerText = data[i].description
             p.innerText = `R$ ${data[i].value}`
         
-            //criando botão
-            let button = document.createElement("button")
-            button.classList.add("button")
-            button.type = "submit"
-            button.innerText = data[i].addCart
-        
             //referenciando
-            element7.appendChild(element6)
-            element6.appendChild(li)
+            ul.appendChild(li)
             li.appendChild(img)
             li.appendChild(div3)
             div3.appendChild(h1)
             div3.appendChild(h2)
             div3.appendChild(h3)
             div3.appendChild(p)
-            li.appendChild(button)
             
-        }else{
-            let element8 = document.getElementsByClassName("container2")[0]
-            let element9 = document.createElement("ul")
-            element9.classList.add("vitrineProduto")
+        }    
+    }
+});
+
+//função para seção alianças de namoro
+let li3Menu = document.getElementsByClassName("aliancasDeNamoro")[0]
+li3Menu.addEventListener("click", function(event){
+    event.preventDefault()
+    let tag1 = document.getElementsByClassName("container2")[0]
+    let tag2 = document.getElementsByClassName("vitrineProduto")[0]
+    tag1.removeChild(tag2)
+
+
+    let ul = document.createElement("ul")
+    ul.classList.add("vitrineProduto")
+    tag1.appendChild(ul)
+
+    for(let i = 0; i < data.length; i++){
+        if(data[i].tag[0] === "Aliança de Namoro"){
+            let ul = document.getElementsByClassName("vitrineProduto")[0]
+            let li = document.createElement("li")
+            let div3 = document.createElement("div")
+            div3.classList.add("listadeprodutos")
+            let img = document.createElement ("img")
             let h1 = document.createElement ("h1")
             h1.classList.add("tag")
-    
-            h1.innerText = ("Produto não encontrado")
-    
-            element8.appendChild(element9)
-            element9.appendChild(h1)
-        }
-        return
+            let h2 = document.createElement ("h2")
+            h2.classList.add("nomeDoProduto")
+            let h3 = document.createElement ("h3")
+            h3.classList.add("descricaoDoProduto")
+            let p = document.createElement("p")
+        
+            //criando imagens
+            img.src = data[i].img
+            img.alt = data[i].nameItem
+        
+            //criando descrição
+            h1.innerText = data[i].tag[0]
+            h2.innerText = data[i].nameItem
+            h3.innerText = data[i].description
+            p.innerText = `R$ ${data[i].value}`
+  
+            //referenciando
+            
+            ul.appendChild(li)
+            li.appendChild(img)
+            li.appendChild(div3)
+            div3.appendChild(h1)
+            div3.appendChild(h2)
+            div3.appendChild(h3)
+            div3.appendChild(p)
+        }    
     }
-    
-}
-encontrandoProduto()
-   
+});
 
+//função para seção alianças de anéis
+let li4Menu = document.getElementsByClassName("aneis")[0]
+li4Menu.addEventListener("click", function(event){
+    event.preventDefault()
+    let tag1 = document.getElementsByClassName("container2")[0]
+    let tag2 = document.getElementsByClassName("vitrineProduto")[0]
+    tag1.removeChild(tag2)
+
+    let ul = document.createElement("ul")
+    ul.classList.add("vitrineProduto")
+    tag1.appendChild(ul)
+
+    for(let i = 0; i < data.length; i++){
+        if(data[i].tag[0] === "Anéis"){
+            let ul = document.getElementsByClassName("vitrineProduto")[0]
+            let li = document.createElement("li")
+            let div3 = document.createElement("div")
+            div3.classList.add("listadeprodutos")
+            let img = document.createElement ("img")
+            let h1 = document.createElement ("h1")
+            h1.classList.add("tag")
+            let h2 = document.createElement ("h2")
+            h2.classList.add("nomeDoProduto")
+            let h3 = document.createElement ("h3")
+            h3.classList.add("descricaoDoProduto")
+            let p = document.createElement("p")
+        
+            //criando imagens
+            img.src = data[i].img
+            img.alt = data[i].nameItem
+        
+            //criando descrição
+            h1.innerText = data[i].tag[0]
+            h2.innerText = data[i].nameItem
+            h3.innerText = data[i].description
+            p.innerText = `R$ ${data[i].value}`
+
+            //referenciando
+            ul.appendChild(li)
+            li.appendChild(img)
+            li.appendChild(div3)
+            div3.appendChild(h1)
+            div3.appendChild(h2)
+            div3.appendChild(h3)
+            div3.appendChild(p)
+        }    
+    }
 });
 
 
-    
+
 
     
 

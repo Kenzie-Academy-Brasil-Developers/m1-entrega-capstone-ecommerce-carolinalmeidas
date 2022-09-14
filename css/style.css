@@ -1,14 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200&display=swap');
 
-body{
-    overflow:visible;
+@import url('https://fonts.googleapis.com/css2? family= PT+Sans:ital,wght@1.700 & display=swap');
+
+.logo{
+   width: 280px;
+   height: 80px;
 }
+
 
 .menu{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #ffffff;
+    color: white;
     box-shadow: 0px 4px 30px -10px rgba(0, 0, 0, 0.1);
     font-family: 'Inter', sans-serif;
 }
@@ -76,8 +80,8 @@ padding: 30px 30px;
 }
 .tag{
     font-size: 11px;
-    background-color:#37268C;
-    color: white;
+    background-color:#f1bb3a;
+    color: black;
     padding: 2px;
     font-family: 'Inter', sans-serif;
 }
@@ -138,10 +142,10 @@ aside{
     margin: 10px 5px;
     width: 113px;
     height: 40px;
-    background-color: #37268C;
+    background-color: #f1bb3a;
     border: 0px;
     text-align: center;
-    color: white;
+    color: black;
 
 }
 .button1:hover{
@@ -150,8 +154,8 @@ aside{
 }
 
 .nomeCarrinho{
-    background-color: #37268C;
-    color: white;
+    background-color: #f1bb3a;
+    color: black;
     font-size: 20px;
     text-align: center;
     margin: 0px;
@@ -255,4 +259,17 @@ aside{
     padding: 20px 10px;
     font-size: 15px;
     font-family: 'Inter', sans-serif;
+}
+
+.todos:hover{
+    text-decoration:underline;
+}
+.aliancasDeCasamento:hover{
+    text-decoration:underline;
+}
+.aliancasDeNamoro:hover{
+    text-decoration:underline;
+}
+.aneis:hover{
+    text-decoration:underline;
 }
